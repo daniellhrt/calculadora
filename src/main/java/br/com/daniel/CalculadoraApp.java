@@ -7,7 +7,7 @@ public class CalculadoraApp {
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("CALCULADORA SIMPLES v1.0");
+        System.out.println("CALCULADORA SIMPLES v1.1");
         System.out.println("Operações disponiveis (+,-,/,*)");
 
         while (true) {
