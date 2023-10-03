@@ -8,6 +8,7 @@ public class CalculadoraApp {
 
         // iniciando variaveis fora do loop para evitar erro de compilação
         Scanner sc = new Scanner(System.in);
+        Calculadora calculadora = new Calculadora();
         float resultado = 0;
         float numero1 = 0;
         float numero2 = 0;
@@ -16,6 +17,7 @@ public class CalculadoraApp {
         System.out.println("CALCULADORA SIMPLES v1.1");
         System.out.println("Operações disponíveis (+, -, /, *)");
         System.out.println("Digite um número por vez (máximo 2 números)");
+
 
         while (true) {
 
@@ -29,26 +31,25 @@ public class CalculadoraApp {
 
                 System.out.println("Digite a operação matemática: (+, -, /, *)");
                 operador = sc.next().charAt(0);
+                calculadora.setNumero1(numero1);
+                calculadora.setNumero2(numero2);
+
 
                 // Verificando se o operador digitado é valido
                 if (operador == '+' || operador == '-' || operador == '/' || operador == '*') {
 
                     switch (operador) {
                         case '+':
-                            resultado = somar(numero1, numero2);
+                            resultado = calculadora.somar();
                             break;
                         case '-':
-                            resultado = subtrair(numero1, numero2);
+                            resultado = calculadora.subtrair();
                             break;
                         case '*':
-                            resultado = multiplicar(numero1, numero2);
+                            resultado = calculadora.multiplicar();
                             break;
                         case '/':
-                            if (numero2 == 0) {
-                                System.out.println("Erro, divisão por zero.");
-                                continue;
-                            }
-                            resultado = dividir(numero1, numero2);
+                            resultado = calculadora.dividir();
                             break;
                         default:
                             System.out.println("Operador inválido.");
@@ -69,6 +70,7 @@ public class CalculadoraApp {
 
             System.out.println("Resultado: " + resultado);
             System.out.println("Deseja fazer outra operação? (S/N)");
+            sc.nextLine();
             char continuar = sc.next().toLowerCase().charAt(0);
 
             if (continuar != 's') {
@@ -77,21 +79,5 @@ public class CalculadoraApp {
             }
         }
         sc.close();
-    }
-
-    public static float somar(float numero1, float numero2) {
-        return numero1 + numero2;
-    }
-
-    public static float subtrair(float numero1, float numero2) {
-        return numero1 - numero2;
-    }
-
-    public static float multiplicar(float numero1, float numero2) {
-        return numero1 * numero2;
-    }
-
-    public static float dividir(float numero1, float numero2) {
-        return numero1 / numero2;
     }
 }
