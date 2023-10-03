@@ -8,17 +8,17 @@ public class CalculadoraApp {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("CALCULADORA SIMPLES v1.1");
-        System.out.println("Operações disponiveis (+,-,/,*)");
+        System.out.println("Operações disponíveis (+, -, /, *)");
+        System.out.println("Digite um número por vez (máximo 2 números)");
 
         while (true) {
-
-            System.out.println("\nDigite primeiro numero:");
+            System.out.println("\nDigite o primeiro número:");
             float numero1 = sc.nextFloat();
 
-            System.out.println("Digite segundo numero:");
+            System.out.println("Digite o segundo número:");
             float numero2 = sc.nextFloat();
 
-            System.out.println("Digite a operação matematica: (+,-,/,*)");
+            System.out.println("Digite a operação matemática: (+, -, /, *)");
             char operador = sc.next().charAt(0);
 
             float resultado = 0;
@@ -38,22 +38,24 @@ public class CalculadoraApp {
                         resultado = numero1 / numero2;
                     } else {
                         System.out.println("Erro, divisão por zero.");
-                        return;
+                        continue;
                     }
                     break;
                 default:
-                    System.out.println("Operador invalido.");
+                    System.out.println("Operador inválido.");
                     continue;
             }
-            System.out.println("Resultado:" + resultado);
-            System.out.println("Deseja fazer outra operação ? S/N");
+
+            System.out.println("Resultado: " + resultado);
+            System.out.println("Deseja fazer outra operação? (S/N)");
             char continuar = sc.next().toLowerCase().charAt(0);
-            if (continuar == 's') {
-                continue;
-            } else {
+
+            if (continuar != 's') {
                 System.out.println("Finalizando...");
                 break;
             }
         }
+
+        sc.close();
     }
 }
