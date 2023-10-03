@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class CalculadoraApp {
     public static void main(String[] args) {
 
+        // iniciando variaveis fora do loop para evitar erro de compilação
         Scanner sc = new Scanner(System.in);
         float resultado = 0;
         float numero1 = 0;
@@ -18,6 +19,7 @@ public class CalculadoraApp {
 
         while (true) {
 
+            // Fazendo tratamento de exceção do dados de entrada
             try {
                 System.out.println("\nDigite o primeiro número:");
                 numero1 = sc.nextFloat();
@@ -27,25 +29,26 @@ public class CalculadoraApp {
 
                 System.out.println("Digite a operação matemática: (+, -, /, *)");
                 operador = sc.next().charAt(0);
+
+                // Verificando se o operador digitado é valido
                 if (operador == '+' || operador == '-' || operador == '/' || operador == '*') {
 
                     switch (operador) {
                         case '+':
-                            resultado = numero1 + numero2;
+                            resultado = somar(numero1, numero2);
                             break;
                         case '-':
-                            resultado = numero1 - numero2;
+                            resultado = subtrair(numero1, numero2);
                             break;
                         case '*':
-                            resultado = numero1 * numero2;
+                            resultado = multiplicar(numero1, numero2);
                             break;
                         case '/':
-                            if (numero2 != 0) {
-                                resultado = numero1 / numero2;
-                            } else {
+                            if (numero2 == 0) {
                                 System.out.println("Erro, divisão por zero.");
                                 continue;
                             }
+                            resultado = dividir(numero1, numero2);
                             break;
                         default:
                             System.out.println("Operador inválido.");
@@ -57,7 +60,8 @@ public class CalculadoraApp {
                     System.out.println("Digite um operador válido...");
                     continue;
                 }
-            } catch (InputMismatchException e) {
+                //faze1ndo o catch com a mensagem de erro e limpando o buffer de entrada com nextLine
+            } catch (InputMismatchException inputMismatchException) {
                 System.out.println("Erro: Entrada inválida. Por favor, insira um número válido.");
                 sc.nextLine();
                 continue;
@@ -72,7 +76,22 @@ public class CalculadoraApp {
                 break;
             }
         }
-
         sc.close();
+    }
+
+    public static float somar(float numero1, float numero2) {
+        return numero1 + numero2;
+    }
+
+    public static float subtrair(float numero1, float numero2) {
+        return numero1 - numero2;
+    }
+
+    public static float multiplicar(float numero1, float numero2) {
+        return numero1 * numero2;
+    }
+
+    public static float dividir(float numero1, float numero2) {
+        return numero1 / numero2;
     }
 }
