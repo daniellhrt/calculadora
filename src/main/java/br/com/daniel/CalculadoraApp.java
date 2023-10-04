@@ -15,7 +15,7 @@ public class CalculadoraApp {
         char operador = 0;
 
         System.out.println("CALCULADORA SIMPLES v1.1");
-        System.out.println("Operações disponíveis (+, -, /, *)");
+        System.out.println("Operações disponíveis (+, -, /, *, %)");
         System.out.println("Digite um número por vez (máximo 2 números)");
 
 
@@ -29,39 +29,46 @@ public class CalculadoraApp {
                 System.out.println("Digite o segundo número:");
                 numero2 = sc.nextFloat();
 
-                System.out.println("Digite a operação matemática: (+, -, /, *)");
-                operador = sc.next().charAt(0);
                 calculadora.setNumero1(numero1);
                 calculadora.setNumero2(numero2);
 
-
                 // Verificando se o operador digitado é valido
-                if (operador == '+' || operador == '-' || operador == '/' || operador == '*') {
+                while (true) {
+                    System.out.println("Digite a operação matemática: (+, -, /, *, %)");
+                    operador = sc.next().charAt(0);
+                    if (calculadora.operadorValido(operador)) {
+                        break;
+                    } else {
+                        System.out.println("Operador inválido: " + operador);
+                        System.out.println("Digite um operador válido...");
+                    }
+                }
 
-                    switch (operador) {
-                        case '+':
-                            resultado = calculadora.somar();
-                            break;
-                        case '-':
-                            resultado = calculadora.subtrair();
-                            break;
-                        case '*':
-                            resultado = calculadora.multiplicar();
-                            break;
-                        case '/':
+                switch (operador) {
+                    case '+':
+                        resultado = calculadora.somar();
+                        break;
+                    case '-':
+                        resultado = calculadora.subtrair();
+                        break;
+                    case '*':
+                        resultado = calculadora.multiplicar();
+                        break;
+                    case '/':
+                        if (numero2 != 0) {
                             resultado = calculadora.dividir();
                             break;
-                        default:
-                            System.out.println("Operador inválido.");
+                        } else {
+                            System.out.println("Erro, divisão por zero.");
                             continue;
-                    }
-
-                } else {
-                    System.out.println("Operador inválido: " + operador);
-                    System.out.println("Digite um operador válido...");
-                    continue;
+                        }
+                    case '%':
+                        resultado = calculadora.calculoPorcentagem();
+                        System.out.println("Subtração do resultado: " + (numero1 - resultado));
+                        break;
                 }
-                //faze1ndo o catch com a mensagem de erro e limpando o buffer de entrada com nextLine
+
+                //fazenndo o catch com a mensagem de erro e limpando o buffer de entrada com nextLine
             } catch (InputMismatchException inputMismatchException) {
                 System.out.println("Erro: Entrada inválida. Por favor, insira um número válido.");
                 sc.nextLine();

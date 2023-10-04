@@ -1,6 +1,7 @@
 package br.com.daniel;
 
 public class Calculadora {
+    private char operador;
     private float resultado;
     private float numero1;
     private float numero2;
@@ -15,6 +16,11 @@ public class Calculadora {
 
     public void setNumero2(float numero2) {
         this.numero2 = numero2;
+    }
+
+    public boolean operadorValido(char operador) {
+        return operador == '+' || operador == '-' || operador == '/' || operador == '*' || operador == '%';
+
     }
 
     public float somar() {
@@ -33,11 +39,11 @@ public class Calculadora {
     }
 
     public float dividir() {
-        if (numero2 != 0) {
-            resultado = numero1 / numero2;
-        } else {
-            System.out.println("Erro, divisão por zero.");
-        }
+        resultado = numero1 / numero2;
         return resultado;
+    }
+
+    public float calculoPorcentagem() {
+        return resultado = numero1 * numero2 / 100;
     }
 }
