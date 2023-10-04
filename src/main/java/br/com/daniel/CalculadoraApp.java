@@ -10,9 +10,9 @@ public class CalculadoraApp {
         Scanner sc = new Scanner(System.in);
         Calculadora calculadora = new Calculadora();
         float resultado = 0;
-        float numero1 = 0;
-        float numero2 = 0;
-        char operador = 0;
+        float numero1;
+        float numero2;
+        char operador;
 
         System.out.println("CALCULADORA SIMPLES v1.1");
         System.out.println("Operações disponíveis (+, -, /, *, %)");
