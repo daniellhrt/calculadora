@@ -10,6 +10,7 @@ Uma simples calculadora em Java para realizar operações matemáticas básicas.
 - Subtração
 - Multiplicação
 - Divisão
+- Porcentagem
 
 ## Como Usar
 
