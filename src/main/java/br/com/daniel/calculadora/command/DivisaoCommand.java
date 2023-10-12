@@ -1,5 +1,6 @@
-package br.com.daniel.calculadora;
+package br.com.daniel.calculadora.command;
 
+import br.com.daniel.calculadora.command.CalculadoraCommand;
 import br.com.daniel.exceptions.DivisaoPorZeroException;
 
 public class DivisaoCommand implements CalculadoraCommand {

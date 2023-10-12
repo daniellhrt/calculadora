@@ -1,4 +1,6 @@
-package br.com.daniel.calculadora;
+package br.com.daniel.calculadora.command;
+
+import br.com.daniel.calculadora.command.CalculadoraCommand;
 
 public class PorcentagemCommand implements CalculadoraCommand {
     private float numero1;

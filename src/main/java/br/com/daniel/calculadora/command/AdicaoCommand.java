@@ -1,4 +1,4 @@
-package br.com.daniel.calculadora;
+package br.com.daniel.calculadora.command;
 
 public class AdicaoCommand implements CalculadoraCommand {
     private float numero1;

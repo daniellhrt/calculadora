@@ -1,6 +1,6 @@
 package br.com.daniel.utils;
 
-import br.com.daniel.calculadora.*;
+import br.com.daniel.calculadora.command.*;
 
 public class CalculadoraUtils {
 
