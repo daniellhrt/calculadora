@@ -1,7 +1,6 @@
 package br.com.daniel.calculadora;
 
 import br.com.daniel.calculadora.command.CalculadoraCommand;
-import br.com.daniel.calculadora.HistoricoCalculos;
 
 import java.util.Scanner;
 
