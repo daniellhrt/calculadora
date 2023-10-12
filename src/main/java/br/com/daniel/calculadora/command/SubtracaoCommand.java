@@ -1,7 +1,5 @@
 package br.com.daniel.calculadora.command;
 
-import br.com.daniel.calculadora.command.CalculadoraCommand;
-
 public class SubtracaoCommand implements CalculadoraCommand {
     private float numero1;
     private float numero2;
